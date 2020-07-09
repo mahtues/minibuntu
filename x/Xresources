@@ -1,0 +1,48 @@
+! Colorscheme
+
+! special
+*.foreground:   #d8dee9
+*.background:   #22222f
+*.cursorColor:  #d8dee9
+
+! black
+*.color0:       #22222f
+*.color8:       #6c757d
+
+! red
+*.color1:       #ee7674
+*.color9:       #ee7674
+
+! green
+*.color2:       #60d394
+*.color10:      #60d394
+
+! yellow
+*.color3:       #E1CF90
+*.color11:      #E1CF90
+
+! blue
+*.color4:       #a0c4ff
+*.color12:      #a0c4ff
+
+! magenta
+*.color5:       #ffadad
+*.color13:      #ffadad
+
+! cyan
+*.color6:       #5bc0eb
+*.color14:      #5bc0eb
+
+! white
+*.color7:       #d8dee9
+*.color15:      #d8dee9
+
+! Appearance
+
+*.scrollBar: false
+*.internalBorder: 26
+*.letterSpace: -1
+*.lineSpace: 1
+
+URxvt.font:     xft:bitstream vera sans mono:size=10:antialias=true
+URxvt.boldFont: xft:bitstream vera sans mono:bold:size=10:antialias=true

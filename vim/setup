@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+ln -s $PWD/vimrc $HOME/.vimrc
+
+mkdir -p $HOME/.vim/pack/vim-go/start
+git clone https://github.com/fatih/vim-go.git $HOME/.vim/pack/vim-go/start/vim-go
+
+mkdir -p $HOME/.vim/pack/ctrl-p/start
+git clone https://github.com/kien/ctrlp.vim.git $HOME/.vim/pack/ctrl-p/start/ctrl-p
+
+mkdir -p $HOME/.vim/pack/nord/start
+git clone https://github.com/arcticicestudio/nord-vim.git $HOME/.vim/pack/nord/start/nord
+
+mkdir -p $HOME/.vim/pack/base16/start
+git clone https://github.com/chriskempson/base16-vim.git $HOME/.vim/pack/base16/start/base16
+
+mkdir -p $HOME/.vim/pack/noctu/start
+git clone https://github.com/noahfrederick/vim-noctu.git $HOME/.vim/pack/noctu/start/noctu
+
+mkdir -p $HOME/.vim/pack/dim/start
+git clone https://github.com/jeffkreeftmeijer/vim-dim.git $HOME/.vim/pack/dim/start/dim

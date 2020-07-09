@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+ln -s $PWD/Xresources $HOME/.Xresources
+ln -s $PWD/xsession $HOME/.xsession

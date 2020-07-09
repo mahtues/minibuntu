@@ -1,0 +1,54 @@
+set autoindent
+set backspace=indent,eol,start
+set cindent
+set completeopt=menu
+set diffopt=filler,iwhite,context:999999
+set hlsearch
+set laststatus=2
+set nocompatible
+set nowrap
+set number
+set ruler
+set scrolloff=2
+set showcmd
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set wildmenu
+set wildmode=full
+
+syntax on
+filetype plugin indent on
+
+au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufReadPost *.html set syntax=htmldjango
+
+" Fold Settings --------------------------------------
+set foldlevel=100
+set foldmethod=syntax
+
+" Python Mode ----------------------------------------
+let g:pymode=0
+
+" jedi -----------------------------------------------
+" Add the virtualenv's site-packages to vim path
+if !empty($VIRTUAL_ENV)
+    let python_version = substitute(system('python --version | sed "s/Python \([0-9]\).*/\1/"'), '\n', '', '')
+    if python_version == '3'
+        let python_version = ':py3 '
+    else
+        let python_version = ':py '
+    endif
+
+    let python_site_packages = systemlist('find ' . $VIRTUAL_ENV . ' -name site-packages')[0]
+
+    exec python_version . 'import sys; sys.path.insert(0, "' . python_site_packages . '")'
+endif
+
+" TagList --------------------------------------------
+let Tlist_Use_Right_Window=1
+let Tlist_Show_One_File=1
+let Tlist_WinWidth=40
+
+set background=dark
+colorscheme dim

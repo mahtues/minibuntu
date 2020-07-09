@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# term stuff
+sudo apt install vim
+sudo apt install tree
+sudo apt install tmux
+sudo apt install htop
+
+# audio stuff
+sudo apt install alsa-utils 
+sudo apt install pulseaudio
+
+# x stuff
+sudo apt install bspwm
+sudo apt install xinit
+sudo apt install x11-xserver-utils 
+sudo apt install rxvt
+sudo apt install mesa-utils
+
+# apps stuff
+sudo apt install chromium-browser

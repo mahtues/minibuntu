@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+mkdir -p $HOME/.config
+
+ln -s $PWD/bspwm $HOME/.config/bspwm
+ln -s $PWD/sxhkd $HOME/.config/sxhkd

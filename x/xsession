@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+xsetroot -solid \#008080
+xsetroot -cursor_name left_ptr
+
+exec bspwm
