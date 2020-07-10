@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+for BCF in ~/.bash_completion.* ; do
+    if [ -f "$BCF" ] ; then
+        . "$BCF"
+    fi
+done
