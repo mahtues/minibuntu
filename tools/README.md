@@ -5,6 +5,7 @@
 ```
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/share
+mkdir -p ~/.local/var
 mkdir -p ~/downloads
 ```
 
@@ -78,7 +79,7 @@ docker run hello-world
 add to `~/.bash_profile` the following
 
 ```
-export GOCURR=go1.14.4
+export GOCURR=go1.15.6
 
 export GOROOT=$HOME/.local/share/$GOCURR
 export GOPATH=$HOME/.local/var/$GOCURR

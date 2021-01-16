@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + {_, shift + }Return
-	exec {urxvt, chromium}
+	exec {urxvt, firefox}
 
 # program launcher
 super + @space
@@ -19,7 +19,7 @@ super + Escape
 #
 
 # quit/restart bspwm
-super + alt + {q,r}
+super + shift + {x,r}
 	bspc {quit,wm -r}
 
 # close and kill
