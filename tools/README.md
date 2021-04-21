@@ -90,7 +90,7 @@ log out and in again. to install golang
 
 ```
 curl https://storage.googleapis.com/golang/$GOCURR.linux-amd64.tar.gz -o ~/downloads/$GOCURR.linux-amd64.tar.gz
-cd ~/downloads && tar xzvf $GOCURR.linux-amd64.tar.gz && mv go $GOPATH && cd -
-mkdir -p $GOROOT
+cd ~/downloads && tar xzvf $GOCURR.linux-amd64.tar.gz && mv go $GOROOT && cd -
+mkdir -p $GOPATH
 ```
 
