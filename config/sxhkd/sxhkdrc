@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + {_, shift + }Return
-	exec {urxvt, firefox}
+	exec {urxvt, brave-browser}
 
 # program launcher
 super + @space
