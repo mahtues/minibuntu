@@ -49,12 +49,12 @@ hi ToolbarButton           ctermfg=7 ctermbg=0 cterm=bold
 
 " syntax groups
 hi Comment                 ctermfg=7
-hi Constant                ctermfg=5
+hi Constant                ctermfg=1
 hi Special                 ctermfg=5
 hi Identifier              ctermfg=6
-hi Statement               ctermfg=6 cterm=bold
+hi Statement               ctermfg=1 cterm=bold
 hi PreProc                 ctermfg=6
-hi Type                    ctermfg=2
+hi Type                    ctermfg=6 cterm=italic
 hi Underlined              cterm=underline
 hi Ignore                  ctermfg=7
 hi Error                   ctermfg=7 ctermbg=1

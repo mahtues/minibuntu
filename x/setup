@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-ln -s $PWD/Xresources $HOME/.Xresources
-ln -s $PWD/xsession $HOME/.xsession
+ln -sf $PWD/Xresources.dracula $HOME/.Xresources
+ln -sf $PWD/xsession $HOME/.xsession

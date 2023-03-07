@@ -2,5 +2,7 @@
 
 mkdir -p $HOME/.config
 
-ln -s $PWD/bspwm $HOME/.config/bspwm
-ln -s $PWD/sxhkd $HOME/.config/sxhkd
+ln -sf $PWD/bspwm $HOME/.config/bspwm
+ln -sf $PWD/sxhkd $HOME/.config/sxhkd
+ln -sf $PWD/rofi $HOME/.config/rofi
+ln -sf $PWD/polybar $HOME/.config/polybar

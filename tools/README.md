@@ -54,7 +54,7 @@ kubectl completion bash >> ~/.bash_completion.kubectl
 . ~/.bash_completion
 ```
 
-## docker (not in user directory this one)
+## docker (this is installed globally in the system)
 
 the docker everyone knows and some people love is in the `docker.io` package.
 don't be tricked by the `docker` package.
@@ -76,7 +76,7 @@ docker run hello-world
 
 ## golang
 
-add to `~/.bash_profile` the following
+add to `~/.profile` the following
 
 ```
 export GOCURR=go1.15.6
@@ -94,3 +94,38 @@ cd ~/downloads && tar xzvf $GOCURR.linux-amd64.tar.gz && mv go $GOROOT && cd -
 mkdir -p $GOPATH
 ```
 
+## docker (communinty edition, latest version)
+
+```
+sudo apt update
+
+# install the tools necessary to apt use HTTPS
+sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+
+# add the GPG key for the offical Docker repository
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+
+# add the offical docker repository
+echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# uninstall old versions of docker (docker.io etc)
+sudo apt remove docker docker.io containerd runc
+
+sudo apt update
+
+# install docker community edition
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# add current user to docker group so it won't be necessary to use 'sudo' for docker commands
+# this command will require to log out and in again to make effect
+sudo usermod -aG docker $USER
+
+# start up the docker service
+sudo service docker start
+
+# check if it's possible to run docker as regular user
+docker run hello-world
+```
