@@ -25,7 +25,12 @@ filetype plugin indent on
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufReadPost *.html set syntax=htmldjango
 
-" Fold Settings --------------------------------------
+" Better split switching
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 set foldlevel=100
 set foldmethod=syntax
 
@@ -59,15 +64,58 @@ let g:mucomplete#can_complete.go = { 'omni': { t -> strlen(&l:omnifunc) > 0 && t
 let g:mucomplete#always_use_completeopt = 1
 
 " clang-complete -------------------------------------
-let g:clang_library_path='/usr/lib/llvm-11/lib'
+let g:clang_library_path='/usr/lib/llvm-14/lib/libclang.so.1'
 let g:clang_auto_user_options='compile_commands.json'
+let g:clang_complete_macros=1
+
+" cscope ---------------------------------------------
+if has('cscope')
+    set cscopetag
+    set csto=0
+
+    if filereadable('cscope.out')
+        cs add cscope.out
+    elseif $CSCOPE_DB != ''
+        cs add $CSCOPE_DB
+    endif
+
+    set cscopeverbose
+endif
 
 " nerdtree -------------------------------------------
 "autocmd VimEnter * NERDTree
 "nnoremap <C-t> :NERDTreeToggle<CR>
 
+" vim-go ---------------------------------------------
+" automatically highlight variable your cursor is on
+let g:go_auto_sameids = 1
+"
+" syntax highlight
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 0
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+
+" automatically show function info
+let g:go_auto_type_info = 1
+
+" vim-go-syntax --------------------------------------
+let g:go_highlight_parens = 0
+let g:go_highlight_braces = 0
+let g:go_highlight_brackets = 0
+
+
+autocmd FileType go nmap gc <Plug>(go-callers)
+autocmd FileType go nmap gr <Plug>(go-rename)
+autocmd FileType go nmap gi <Plug>(go-implements)
+
 "set t_Co=16
-let g:dracula_colorterm=0
-packadd! dracula
+"let g:dracula_colorterm=0
+"packadd! dracula
 syntax enable
-colorscheme dracula
+"colorscheme dracula
+colo disapointment

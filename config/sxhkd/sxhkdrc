@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + {_, shift + }Return
-	exec {urxvt, google-chrome}
+	exec {xterm -tn xterm-256color, google-chrome}
 
 # program launcher
 super + @space
@@ -12,7 +12,11 @@ super + @space
 
 # print screen
 super + 5
-    scrot -s ~/pictures/screenshots/%Y-%m-%d-%H-%M-%S.png
+    scrot -s -e 'cp $f ~/pictures/screenshots/latest.png' ~/pictures/screenshots/%Y-%m-%d-%H-%M-%S.png
+#
+# print selection
+super + shift + 5
+    scrot -s -e 'xclip -selection clipboard -t image/png -i $f; cp $f ~/pictures/screenshots/latest.png' ~/pictures/screenshots/%Y-%m-%d-%H-%M-%S.png
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -22,7 +26,7 @@ super + Escape
 # bspwm hotkeys
 #
 
-# quit/restart bspwm
+# restart bspwm
 super + shift + r
 	bspc wm -r
 
@@ -34,17 +38,22 @@ super + shift + x
 super + {_,alt + }c
 	bspc node -{c,k}
 
-# alternate between the tiled and monocle layout
+# alternate between monitors
 super + m
-	bspc desktop -l next
+	bspc monitor --focus next
+
+super + shift + m
+	bspc node -m next --follow
 
 #
 # state/flags
 #
 
 # set the window state
-super + {t,shift + t,shift + f,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,shift + f,f}
+	bspc node -t {tiled,~floating,~fullscreen}
+#super + {t,shift + t,shift + f,f}
+#	bspc node -t {tiled,pseudo_tiled,floating,~fullscreen}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -63,16 +72,19 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-super + {i, o}
-	bspc node -f {prev,next}.local
+super + {i,o}
+	bspc node -f {prev,next}.local.window
 
 # focus the next/previous desktop in the current monitor
-super + shift + {i, o}
-	bspc node -f -s {prev,next}.local
+super + shift + {i,o}
+	bspc node -f -s {prev,next}.local.window
+
+super + ctrl + {i,o}
+	bspc node @/ -C {backward,forward}
 
 # focus or send to the given desktop
 super + {_,shift + }{1,2,3,q,w,e,a,s,d}
-	bspc {desktop -f,node -d} '^{1-9}'
+	bspc {desktop -f,node -d} focused:'^{1-9}'
 
 #
 # preselect
@@ -81,6 +93,14 @@ super + {_,shift + }{1,2,3,q,w,e,a,s,d}
 # preselect the direction
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
+
+# move window to preselected area
+super + y
+	bspc node -n newest.\!automatic
+
+# move marked window to preselected area
+super + shift + y
+	bspc node newest.marked -n newest.\!automatic --follow
 
 # preselect the ratio
 super + ctrl + {1-9}

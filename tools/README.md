@@ -79,7 +79,7 @@ docker run hello-world
 add to `~/.profile` the following
 
 ```
-export GOCURR=go1.15.6
+export GOCURR=go1.21.4
 
 export GOROOT=$HOME/.local/share/$GOCURR
 export GOPATH=$HOME/.local/var/$GOCURR
