@@ -33,15 +33,6 @@ function! s:c(grp)
     execute 'hi clear' a:grp
 endfunction
 
-let s:cblack   = 145
-let s:cred     = 181
-let s:cgreen   = 151
-let s:cyellow  = 187
-let s:cblue    = 146
-let s:cmagenta = 182
-let s:ccyan    = 152
-let s:cwhite   = 188
-
 let s:perm43 = {'blk': 145, 'red': 181, 'grn': 151, 'ylw': 187, 'blu': 146, 'mgn': 182, 'cya': 152, 'wht': 188}
 let s:perm40 = {'blk': 59, 'red': 203, 'grn': 83, 'ylw': 227, 'blu': 63, 'mgn': 207, 'cya': 87, 'wht': 231}
 let s:perm50 = {'blk': 16, 'red': 196, 'grn': 46, 'ylw': 226, 'blu': 21, 'mgn': 201, 'cya': 51, 'wht': 231}
@@ -52,47 +43,28 @@ let s:full  = s:perm40
 let s:black    = 16
 let s:white    = 231
 
-let s:gray0    = 16
-let s:gray1    = 59
-let s:gray2    = 102
-let s:gray3    = 145
-let s:gray4    = 188
-let s:gray5    = 231
+let s:gray = [16, 59, 102, 145, 188, 231]
 
-let s:fgbrightest = 255
-let s:fgbright    = 252
-let s:fgmedium    = 249
-let s:fgdark      = 246
-let s:fgdarkest   = 243
+let s:fg = {'full': 255, 'norm': 250, 'dull': 245, 'duller': 240}
+let s:bg = {'norm': 'none', 'actv': 239, 'inactv': 237}
 
-let s:bgactive    = 239
-let s:bginactive  = 237
-
-" TODO: just 3 levels are enough
-let s:dbrightest = {'fg': s:fgbrightest}
-let s:dbright    = {'fg': s:fgbright}
-let s:dmedium    = {'fg': s:fgmedium}
-let s:dark       = {'fg': s:fgdark}
-let s:ddarkest   = {'fg': s:fgdarkest}
-
-call s:h('Normal',        s:dbrightest)
+call s:h('Normal',        {'fg': s:fg.norm})
 
 " syntax highlight -----------------------------------------------------------
 
-call s:h('Comment',       {'fg': s:fgdarkest, 'sp': 'italic'})
+call s:h('Comment',       {'fg': s:fg.dull, 'sp': 'italic'})
 
-call s:h('Constant',      {'fg': s:cred})
+call s:h('Constant',      {'fg': s:theme.red})
 hi! link String           Constant
 hi! link Character        Constant
 hi! link Number           Constant
 hi! link Boolean          Constant
 hi! link Float            Constant
 
-call s:h('Identifier',    s:dmedium)
+call s:h('Identifier',    {})
+hi! link Function         Identifier
 
-call s:h('Function',      {'sp': 'italic'})
-
-call s:h('Statement',     s:dbrightest)
+call s:h('Statement',     {'fg': s:fg.full})
 hi! link Conditonal       Statement
 hi! link Repeat           Statement
 hi! link Label            Statement
@@ -106,12 +78,12 @@ hi! link Define           PreProc
 hi! link Macro            PreProc
 hi! link PreCondit        PreProc
 
-call s:h('Type',          {'fg': s:ccyan, 'sp': 'italic'})
+call s:h('Type',          {'fg': s:theme.cya, 'sp': 'italic'})
 hi! link StorageClass     Type
 hi! link Structure        Type
 hi! link Typedef          Type
 
-call s:h('Special',       {'fg': s:cblue})
+call s:h('Special',       {'fg': s:theme.blu})
 hi! link SpecialChar      Special
 hi! link Tag              Special
 hi! link Delimiter        Special
@@ -133,7 +105,7 @@ hi! link SpellBad         Error
 call s:h('Todo',          {'fg': s:black, 'bg': s:full.ylw, 'sp': 'bold'})
 hi! link  DiffText        Todo
 
-call s:h('LineNr',        {'fg': 240})
+call s:h('LineNr',        {'fg': s:fg.duller})
 
 call s:h('Search',        {'fg': s:black, 'bg': s:theme.ylw, 'sp': 'bold,italic'})
 
@@ -145,12 +117,12 @@ call s:h('StatusLine',    {'fg': 255, 'bg': 237, 'sp': 'bold'})
 call s:h('StatusLineNC',  {'fg': 243, 'bg': 237})
 call s:h('VertSplit',     {'fg': 237, 'bg': 237})
 
-call s:h('Pmenu',         {'fg': s:cwhite, 'bg': s:bginactive})
-call s:h('PmenuSel',      {'fg': s:cwhite, 'bg': 239, 'sp': 'bold'})
-call s:h('PmenuSbar',     {'fg': s:gray2, 'bg': s:gray1})
-call s:h('PmenuThumb',    {'fg': s:gray1, 'bg': s:gray2})
-call s:h('WildMenu',      {'fg': 0, 'bg': s:cyellow})
-call s:h('CursorLine',    {'fg': s:white, 'bg': s:bgactive, 'sp': 'bold'})
+call s:h('Pmenu',         {'fg': s:full.wht, 'bg': s:bg.inactv})
+call s:h('PmenuSel',      {'fg': s:full.wht, 'bg': 239, 'sp': 'bold'})
+call s:h('PmenuSbar',     {'fg': s:gray[2], 'bg': s:gray[1]})
+call s:h('PmenuThumb',    {'fg': s:gray[1], 'bg': s:gray[2]})
+call s:h('WildMenu',      {'fg': 0, 'bg': s:theme.ylw})
+call s:h('CursorLine',    {'fg': s:white, 'bg': s:bg.actv, 'sp': 'bold'})
 
 call s:h('DiffChange',    {'fg': s:black, 'bg': s:white})
 call s:h('SignColumn',    {})

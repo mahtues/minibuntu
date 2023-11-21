@@ -1,10 +1,14 @@
-hi! link goFuncBlock Identifier
-hi! link goDeclNames Identifier
-hi! link goPackageName goDeclNames
-hi! link goTypeDeclName goDeclNames
-hi! link goFuncName goDeclNames
-hi! link goImportItem Identifier
-hi! link goImportedPackages Identifier
-hi! link goStructLiteralBlock Identifier
-hi! link goCurrentPackage Identifier
-hi! link goFuncCallArgs Identifier
+" vim-go-syntax
+
+hi! link goPackageName Identifier
+hi! link goImportItem goPackageName
+hi! link goCurrentPackage goPackageName
+
+hi! link goParens Operator
+hi! link goBraces Operator
+hi! link goBrackets Operator
+hi! link goFuncCall Operator
+
+"hi! link goTypeDeclName Identifier
+
+
