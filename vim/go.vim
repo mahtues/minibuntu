@@ -7,3 +7,4 @@ hi! link goImportItem Identifier
 hi! link goImportedPackages Identifier
 hi! link goStructLiteralBlock Identifier
 hi! link goCurrentPackage Identifier
+hi! link goFuncCallArgs Identifier

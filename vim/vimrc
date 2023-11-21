@@ -17,7 +17,7 @@ set shiftwidth=4
 set expandtab
 set tabstop=4
 set wildmenu
-set wildmode=full
+set wildmode=longest:full,full
 
 syntax on
 filetype plugin indent on
@@ -103,15 +103,14 @@ let g:go_highlight_generate_tags = 1
 " automatically show function info
 let g:go_auto_type_info = 1
 
+autocmd FileType go nmap gc <Plug>(go-callers)
+autocmd FileType go nmap gr <Plug>(go-rename)
+autocmd FileType go nmap gi <Plug>(go-implements)
+
 " vim-go-syntax --------------------------------------
 let g:go_highlight_parens = 0
 let g:go_highlight_braces = 0
 let g:go_highlight_brackets = 0
-
-
-autocmd FileType go nmap gc <Plug>(go-callers)
-autocmd FileType go nmap gr <Plug>(go-rename)
-autocmd FileType go nmap gi <Plug>(go-implements)
 
 "set t_Co=16
 "let g:dracula_colorterm=0

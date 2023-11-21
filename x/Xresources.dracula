@@ -37,7 +37,8 @@
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
 
-*.cursorColor:  #d8dee9
+!*.cursorColor:  #d8dee9
+*.cursorColor:  #50FA7B
 
 ! Appearance
 
