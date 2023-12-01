@@ -43,10 +43,19 @@
 ! Appearance
 
 *.scrollBar: false
-*.internalBorder: 26
-*.letterSpace: -1
-*.lineSpace: 1
-*.forceBoxChars: true
+!*.internalBorder: 26
+*.internalBorder: 20
+Urxvt*letterSpace: -1
+Urxvt*lineSpace: 1
 
-*.font:     xft:bitstream vera sans mono:size=10:antialias=true
-*.boldFont: xft:bitstream vera sans mono:bold:size=10:antialias=true
+!*.forceBoxChars: true
+!*.font:     xft:bitstream vera sans mono:size=10:antialias=true
+!*.boldFont: xft:bitstream vera sans mono:bold:size=10:antialias=true
+
+!*.forceBoxChars: false
+!*.font:     xft:jetbrains mono:size=10:antialias=true
+!*.boldFont: xft:jetbrains mono:bold:size=10:antialias=true
+
+*.forceBoxChars: true
+*.font:     xft:ubuntu mono:size=12:antialias=true
+*.boldFont: xft:ubuntu mono:bold:size=12:antialias=true

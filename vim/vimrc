@@ -118,4 +118,4 @@ let g:go_highlight_brackets = 0
 "packadd! dracula
 syntax enable
 "colorscheme dracula
-colo disapointment
+colo disappointment

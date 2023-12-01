@@ -45,7 +45,7 @@ let s:white    = 231
 
 let s:gray = [16, 59, 102, 145, 188, 231]
 
-let s:fg = {'full': 255, 'norm': 250, 'dull': 245, 'duller': 240}
+let s:fg = {'full': 231, 'norm': 251, 'dull': 246, 'duller': 241}
 let s:bg = {'norm': 'none', 'actv': 239, 'inactv': 237}
 
 call s:h('Normal',        {'fg': s:fg.norm})

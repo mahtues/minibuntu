@@ -8,6 +8,8 @@ hi! link goParens Operator
 hi! link goBraces Operator
 hi! link goBrackets Operator
 hi! link goFuncCall Operator
+hi! link goComma Operator
+hi! link goSemicolon Operator
 
 "hi! link goTypeDeclName Identifier
 
