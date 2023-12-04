@@ -13,12 +13,15 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
     {
+        -- lsp stuff
         'neovim/nvim-lspconfig',
     },
     {
+        -- downloads lsp binaries
         'williamboman/mason.nvim',
     },
     {
+        -- launches lsp servers
         "williamboman/mason-lspconfig.nvim",
         dependencies = { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' },
     },
@@ -34,6 +37,14 @@ local plugins = {
     },
     {
         'tpope/vim-fugitive'
+    },
+    {
+        'ray-x/go.nvim',
+        config = function()
+            require('go').setup {}
+        end,
+        event = {'CmdlineEnter'},
+        ft = {'go', 'gomod'},
     },
 }
 

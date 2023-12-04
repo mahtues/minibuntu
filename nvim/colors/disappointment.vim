@@ -162,23 +162,22 @@ hi ToolbarLine            ctermbg=7
 hi ToolbarButton          ctermfg=7 ctermbg=0 cterm=bold
 
 " Telescope
-let s:a = {'fg': 'none', 'bg': 237}
-let s:b = {'fg': 'none', 'bg': 236}
-let s:c = {'fg': 'none', 'bg': 235}
+let s:tsa = {'fg': 'none', 'bg': 237}
+let s:tsb = {'fg': 'none', 'bg': 236}
 
-call s:h('TelescopeNormal',         s:a)
-call s:h('TelescopeBorder',         s:a)
+call s:h('TelescopeNormal',         s:tsa)
+call s:h('TelescopeBorder',         s:tsa)
 
-call s:h('TelescopeSelectionCaret', s:a)
-"call s:h('TelescopeMatching',       s:b)
+call s:h('TelescopeSelectionCaret', s:tsa)
+"call s:h('TelescopeMatching',       s:tsb)
 
-call s:h('TelescopePromptNormal',   s:b)
-call s:h('TelescopePromptTitle',    s:b)
-call s:h('TelescopePromptPrefix',   s:b)
-call s:h('TelescopePromptBorder',   s:b)
+call s:h('TelescopePromptNormal',   s:tsb)
+call s:h('TelescopePromptTitle',    s:tsb)
+call s:h('TelescopePromptPrefix',   s:tsb)
+call s:h('TelescopePromptBorder',   s:tsb)
 
-call s:h('TelescopePreviewTitle',   s:a)
-call s:h('TelescopePreviewBorder',  s:a)
+call s:h('TelescopePreviewTitle',   s:tsa)
+call s:h('TelescopePreviewBorder',  s:tsa)
 
-call s:h('TelescopeResultsTitle',   s:a)
-call s:h('TelescopeResultsBorder',  s:a)
+call s:h('TelescopeResultsTitle',   s:tsa)
+call s:h('TelescopeResultsBorder',  s:tsa)

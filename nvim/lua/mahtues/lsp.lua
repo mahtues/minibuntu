@@ -4,7 +4,6 @@ require('mason-lspconfig').setup {
         'gopls',
         'golangci_lint_ls',
         'lua_ls',
-        -- 'delve',
     },
 }
 
@@ -27,21 +26,6 @@ lspconfig.gopls.setup {
 
 lspconfig.golangci_lint_ls.setup {}
 
-local lsp = require('vim.lsp')
-local buf = require('vim.lsp.buf')
-local util = require('vim.lsp.util')
-local diagnostic = require('vim.diagnostic')
-
-local orig = util.text_document_completion_list_to_complete_items
-
-util.text_document_completion_list_to_complete_items = function(a, b)
-    local r = orig(a, b)
-    for _, v in ipairs(r) do
-        v.kind = v.kind:lower():sub(1, 1)
-    end
-    return r
-end
-
 lspconfig.lua_ls.setup {
     settings = {
         Lua = {
@@ -53,14 +37,49 @@ lspconfig.lua_ls.setup {
             workspace = {
                 library = {
                     ['/home/matheus/tmp/work/squashfs-root/usr/share/nvim/runtime'] = true,
+                    ['/home/matheus/.local/bin/nvim.appimage.home/.local/share/nvim/lazy'] = true,
                 },
             },
         },
     },
 }
 
---@param foo integer
---@param bar string
-local function func(foo, bar)
-    return foo .. ' ' .. bar
+-- remapping kind to 1 char only
+local util = require('vim.lsp.util')
+local orig = util.text_document_completion_list_to_complete_items
+local ffunc = function(a, b)
+    local symbol_map = {
+      --Text = '󰉿',
+      Method = 'f',
+      Function = 'f',
+      Constructor = 'f',
+      Field = 'm',
+      Variable = 'v',
+      Class = 't',
+      Interface = 't',
+      Module = '0',
+      Property = 'm',
+      --Unit = '󰑭',
+      Value = 'v',
+      Enum = 't',
+      --Keyword = '󰌋',
+      --Snippet = '',
+      --Color = '󰏘',
+      File = '0',
+      --Reference = '󰈇',
+      Folder = '0',
+      EnumMember = 'm',
+      Constant = 'v',
+      Struct = 't',
+      --Event = '',
+      --Operator = '󰆕',
+      --TypeParameter = ' ',
+    }
+
+    local r = orig(a, b)
+    for _, v in ipairs(r) do
+        v.kind = symbol_map[v.kind] or v.kind or '?'
+    end
+    return r
 end
+util.text_document_completion_list_to_complete_items = ffunc

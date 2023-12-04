@@ -23,6 +23,9 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.completeopt = 'menu,longest,noselect,noinsert'
+vim.opt.wildmode = 'longest:full,full'
+
+vim.opt.diffopt = 'filler,iwhite,context:999999'
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 vim.lsp.util.open_floating_preview = function(contents, syntax, opts, ...)
