@@ -3,7 +3,8 @@
 ! Dracula Xresources palette
 ! special
 *.foreground: #F8F8F2
-*.background: #282A36
+!*.background: #282A36
+*.background: #000000
 
 ! black
 *.color0:     #000000
@@ -57,5 +58,7 @@ Urxvt*lineSpace: 1
 !*.boldFont: xft:jetbrains mono:bold:size=10:antialias=true
 
 *.forceBoxChars: true
-*.font:     xft:ubuntu mono:size=12:antialias=true
-*.boldFont: xft:ubuntu mono:bold:size=12:antialias=true
+*.font:     xft:ubuntu mono:size=10:antialias=true
+*.boldFont: xft:ubuntu mono:bold:size=10:antialias=true
+
+!Xft.dpi: 116

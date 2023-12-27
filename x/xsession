@@ -3,4 +3,10 @@
 xsetroot -solid \#008080
 xsetroot -cursor_name left_ptr
 
+polybar left -c $HOME/.config/polybar/config.ini &
+polybar right -c $HOME/.config/polybar/config.ini &
+
+rofi &
+sxhkd &
+
 exec bspwm
